@@ -28,3 +28,6 @@ serenity-rest-assure/target
 # .idea directory
 serenity-rest-assure/.idea
 
+# Others:
+*.DS_Store
+
