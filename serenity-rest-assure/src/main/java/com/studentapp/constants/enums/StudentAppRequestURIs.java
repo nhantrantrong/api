@@ -17,9 +17,4 @@ public enum StudentAppRequestURIs {
         return this.requestUri;
     }
 
-    public StudentAppRequestURIs updateRequestUriWithParams(Object... params) {
-        this.requestUri = String.format(requestUri, params);
-        return this;
-    }
-
 }

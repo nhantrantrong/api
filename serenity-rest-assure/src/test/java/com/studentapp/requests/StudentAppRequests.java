@@ -24,17 +24,17 @@ public class StudentAppRequests extends RequestBuilder {
     }
 
     public ValidatableResponse deleteStudent(int studentId, StatusCode expectedCode) {
-        return sendDelete(DELETE_STUDENT.updateRequestUriWithParams(String.valueOf(studentId)))
+        return sendDelete(DELETE_STUDENT, String.valueOf(studentId))
                 .statusCode(expectedCode.getStatusCode());
     }
 
     public ValidatableResponse getStudentById(int studentId, StatusCode expectedCode) {
-        return sendGet(GET_STUDENT.updateRequestUriWithParams(String.valueOf(studentId)))
+        return sendGet(GET_STUDENT, String.valueOf(studentId))
                 .statusCode(expectedCode.getStatusCode());
     }
 
     public ValidatableResponse updateStudent(int studentId, Student student, StatusCode expectedCode) {
-        return sendPut(PUT_STUDENT.updateRequestUriWithParams(String.valueOf(studentId)), student)
+        return sendPut(PUT_STUDENT, student, String.valueOf(studentId))
                 .statusCode(expectedCode.getStatusCode());
     }
 }

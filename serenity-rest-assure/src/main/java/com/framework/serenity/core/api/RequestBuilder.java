@@ -46,29 +46,32 @@ public class RequestBuilder {
                                      Object... params) {
         requestSender.log()
                 .all();
+        String uriWithParams = uri.getRequestUri().contains("%s") ?
+                String.format(uri.getRequestUri(), params) : uri.getRequestUri();
+
         return switch (method) {
-            case POST -> requestSender.post(uri.getRequestUri())
+            case POST -> requestSender.post(uriWithParams)
                     .then()
                     .log()
                     .all();
-            case PUT -> requestSender.put(uri.getRequestUri())
+            case PUT -> requestSender.put(uriWithParams)
                     .then()
                     .log()
                     .all();
-            case GET -> requestSender.get(uri.getRequestUri())
+            case GET -> requestSender.get(uriWithParams)
                     .then()
                     .log()
                     .all();
-            default -> requestSender.delete(uri.getRequestUri(), params)
+            default -> requestSender.delete(uriWithParams)
                     .then()
                     .log()
                     .all();
         };
     }
 
-    public ValidatableResponse sendGet(StudentAppRequestURIs uri) {
+    public ValidatableResponse sendGet(StudentAppRequestURIs uri, Object... params) {
         RequestSpecification request = initRequest();
-        return send(GET, uri, request);
+        return send(GET, uri, request, params);
     }
 
     public ValidatableResponse sendPost(StudentAppRequestURIs uri, Object body) {
@@ -83,10 +86,10 @@ public class RequestBuilder {
         return send(DELETE, uri, request, params);
     }
 
-    public ValidatableResponse sendPut(StudentAppRequestURIs uri, Object body) {
+    public ValidatableResponse sendPut(StudentAppRequestURIs uri, Object body, Object... params) {
         RequestSpecification request = initRequest();
         request.contentType(ContentType.JSON)
                 .body(body);
-        return send(PUT, uri, request);
+        return send(PUT, uri, request, params);
     }
 }
