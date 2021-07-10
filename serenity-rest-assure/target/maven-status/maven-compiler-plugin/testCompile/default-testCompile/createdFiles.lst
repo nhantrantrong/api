@@ -1,8 +1,0 @@
-com/studentapp/requests/StudentAppRequests.class
-com/studentapp/tests/deleteStudent/DeleteStudentTest.class
-com/studentapp/tests/editStudent/EditStudentTest.class
-com/studentapp/tests/createStudent/CreateStudentTest.class
-com/studentapp/requests/StudentAppBusiness.class
-com/studentapp/utils/TestUtils.class
-com/studentapp/testbase/TestBase.class
-com/studentapp/tests/getStudent/GetStudentTest.class

@@ -1,4 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Create student test","Validate new student can be created successfully","SUCCESS","2021-07-10T21:43:55.543867+07:00[Asia/Ho_Chi_Minh]","0.0","2.34"
-"Delete student test","Validate that user can delete an existing student","SUCCESS","2021-07-10T21:43:39.164702+07:00[Asia/Ho_Chi_Minh]","0.0","11.03"
-"Get student test","Validate that user can get list of existing students","SUCCESS","2021-07-10T21:44:00.857766+07:00[Asia/Ho_Chi_Minh]","0.0","0.52"

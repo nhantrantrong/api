@@ -17,11 +17,11 @@ import static com.studentapp.constants.enums.StatusCode.*;
 @RunWith(SerenityRunner.class)
 public class DeleteStudentTest extends TestBase {
 
-    private String firstName = "Karson";
-    private String lastName = "Tran";
-    private String programme = "ComputerScience";
-    private String email = String.format("KarsonTran_%s@gmail.com", TestUtils.getRandomValue());
-    private List<String> courses = new ArrayList<String>();
+    private final String firstName = "Karson";
+    private final String lastName = "Tran";
+    private final String programme = "ComputerScience";
+    private final String email = String.format("KarsonTran_%s@gmail.com", TestUtils.getRandomValue());
+    private final List<String> courses = new ArrayList<String>();
 
     @Before
     public void beforeTest() {

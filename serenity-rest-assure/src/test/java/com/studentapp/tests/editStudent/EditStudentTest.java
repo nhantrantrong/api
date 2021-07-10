@@ -3,9 +3,7 @@ package com.studentapp.tests.editStudent;
 import com.studentapp.model.Student;
 import com.studentapp.testbase.TestBase;
 import com.studentapp.utils.TestUtils;
-import io.restassured.http.ContentType;
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Title;
 import org.junit.After;
 import org.junit.Before;
@@ -23,11 +21,11 @@ import static org.hamcrest.Matchers.*;
 @RunWith(SerenityRunner.class)
 public class EditStudentTest extends TestBase {
 
-    private String firstName = "Karson";
-    private String lastName = "Tran";
-    private String programme = "ComputerScience";
-    private String email = String.format("KarsonTran_%s@gmail.com", TestUtils.getRandomValue());
-    private List<String> courses = new ArrayList<String>();
+    private final String firstName = "Karson";
+    private final String lastName = "Tran";
+    private final String programme = "ComputerScience";
+    private final String email = String.format("KarsonTran_%s@gmail.com", TestUtils.getRandomValue());
+    private final List<String> courses = new ArrayList<>();
     Student student = new Student();
     private int studentId;
 

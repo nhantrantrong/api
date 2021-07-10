@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="com.studentapp.tests.deleteStudent.DeleteStudentTest" skipped="0" tests="1" time="11.03" timestamp="2021-07-10 09:43:39"><testcase classname="com.studentapp.tests.deleteStudent.DeleteStudentTest" name="Validate that user can delete an existing student"/></testsuite>
