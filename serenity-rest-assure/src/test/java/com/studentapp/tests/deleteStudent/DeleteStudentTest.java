@@ -41,7 +41,7 @@ public class DeleteStudentTest extends TestBase {
     @Title("Validate that user can delete an existing student")
     @Test
     public void validateDeleteExistingStudentSuccessfully() {
-        int studentId = studentRequests.getStudentIdByEmail(email);
+        int studentId = studentAppBusiness.getStudentIdByEmail(email);
         studentRequests.deleteStudent(studentId, NO_CONTENT);
         studentRequests.getStudentById(studentId, NOT_FOUND);
     }

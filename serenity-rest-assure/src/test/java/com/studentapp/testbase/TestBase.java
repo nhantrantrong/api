@@ -1,20 +1,24 @@
 package com.studentapp.testbase;
 
 import com.framework.serenity.core.configs.Settings;
-import com.studentapp.requests.StudentAppBusiness;
+import com.studentapp.requests.StudentAppRequestsFactory;
 import org.junit.BeforeClass;
 
 import java.io.IOException;
 import java.util.Properties;
 
-public class TestBase {
+/**
+ * Creator: Nhan.Tran Trong
+ * Implement some initialization, beforeClass and afterClass for preparation and cleaning up test
+ *
+ */
+public class TestBase extends StudentAppRequestsFactory{
     private static final String testsPropertiesFile = "./src/test/resources/configs/tests.properties";
     public static Properties prop;
-    public static StudentAppBusiness studentRequests;
 
     @BeforeClass
     public static void init() throws IOException {
         prop = Settings.readPropertiesFile(testsPropertiesFile);
-        studentRequests = new StudentAppBusiness(prop.getProperty("baseUrl"));
+        initRequests(prop.getProperty("baseUrl"));
     }
 }

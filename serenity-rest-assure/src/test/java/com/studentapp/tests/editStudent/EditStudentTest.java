@@ -41,7 +41,7 @@ public class EditStudentTest extends TestBase {
         student.setCourses(courses);
 
         studentRequests.createStudent(student, CREATED);
-        studentId = studentRequests.getStudentIdByEmail(email);
+        studentId = studentAppBusiness.getStudentIdByEmail(email);
     }
 
     @After

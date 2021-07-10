@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.studentapp.constants.enums.StatusCode.*;
+import static com.studentapp.requests.StudentAppRequestsFactory.studentRequests;
 
 @RunWith(SerenityRunner.class)
 public class CreateStudentTest extends TestBase {
@@ -24,7 +25,7 @@ public class CreateStudentTest extends TestBase {
 
     @After
     public void afterTest() {
-        int studentId = studentRequests.getStudentIdByEmail(email);
+        int studentId = studentAppBusiness.getStudentIdByEmail(email);
         studentRequests.deleteStudent(studentId, NO_CONTENT);
     }
 

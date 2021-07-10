@@ -1,4 +1,4 @@
-package com.studentapp.requests;
+package com.studentapp.requests.original;
 
 import com.framework.serenity.core.api.RequestBuilder;
 import com.studentapp.constants.enums.StatusCode;
@@ -7,6 +7,11 @@ import io.restassured.response.ValidatableResponse;
 
 import static com.studentapp.constants.enums.StudentAppRequestURIs.*;
 
+/**
+ * Creator: Nhan.Tran Trong
+ * This class implements all single api request basing on Swagger or any api documentation
+ *
+ */
 public class StudentAppRequests extends RequestBuilder {
 
     public StudentAppRequests(String baseUri) {
