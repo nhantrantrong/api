@@ -1,4 +1,4 @@
-package com.studentapp.constants.enums;
+package com.framework.serenity.core.enums;
 
 public enum StatusCode {
     SUCCESS(200),

@@ -1,4 +1,4 @@
-package com.studentapp.testbase;
+package com.studentapp.tests;
 
 import com.framework.serenity.core.configs.Settings;
 import com.studentapp.requests.StudentAppRequestsFactory;

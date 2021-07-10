@@ -1,7 +1,6 @@
 package com.studentapp.requests.business;
 
-import com.studentapp.constants.enums.StatusCode;
-import com.studentapp.requests.StudentAppRequestsFactory;
+import com.framework.serenity.core.enums.StatusCode;
 
 import java.util.HashMap;
 import java.util.List;

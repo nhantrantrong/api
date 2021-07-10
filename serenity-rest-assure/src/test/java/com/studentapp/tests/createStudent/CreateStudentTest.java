@@ -1,8 +1,8 @@
 package com.studentapp.tests.createStudent;
 
 import com.studentapp.model.Student;
-import com.studentapp.testbase.TestBase;
-import com.studentapp.utils.TestUtils;
+import com.studentapp.tests.TestBase;
+import com.framework.serenity.core.utils.Numbers;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Title;
 import org.junit.After;
@@ -12,15 +12,14 @@ import org.junit.runner.RunWith;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.studentapp.constants.enums.StatusCode.*;
-import static com.studentapp.requests.StudentAppRequestsFactory.studentRequests;
+import static com.framework.serenity.core.enums.StatusCode.*;
 
 @RunWith(SerenityRunner.class)
 public class CreateStudentTest extends TestBase {
     private final String firstName = "Karson";
     private final String lastName = "Tran";
     private final String programme = "ComputerScience";
-    private final String email = String.format("KarsonTran_%s@gmail.com", TestUtils.getRandomValue());
+    private final String email = String.format("KarsonTran_%s@gmail.com", Numbers.getRandomInt());
     private final List<String> courses = new ArrayList<>();
 
     @After

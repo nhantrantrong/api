@@ -1,6 +1,6 @@
 package com.framework.serenity.core.api;
 
-import com.studentapp.constants.enums.HTTPMethod;
+import com.framework.serenity.core.enums.HTTPMethod;
 import com.studentapp.constants.enums.StudentAppRequestURIs;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -8,7 +8,7 @@ import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import net.serenitybdd.rest.SerenityRest;
 
-import static com.studentapp.constants.enums.HTTPMethod.*;
+import static com.framework.serenity.core.enums.HTTPMethod.*;
 
 public class RequestBuilder {
     private String baseUri;

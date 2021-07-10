@@ -1,8 +1,8 @@
 package com.studentapp.tests.editStudent;
 
 import com.studentapp.model.Student;
-import com.studentapp.testbase.TestBase;
-import com.studentapp.utils.TestUtils;
+import com.studentapp.tests.TestBase;
+import com.framework.serenity.core.utils.Numbers;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Title;
 import org.junit.After;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.studentapp.constants.enums.StatusCode.*;
+import static com.framework.serenity.core.enums.StatusCode.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -24,7 +24,7 @@ public class EditStudentTest extends TestBase {
     private final String firstName = "Karson";
     private final String lastName = "Tran";
     private final String programme = "ComputerScience";
-    private final String email = String.format("KarsonTran_%s@gmail.com", TestUtils.getRandomValue());
+    private final String email = String.format("KarsonTran_%s@gmail.com", Numbers.getRandomInt());
     private final List<String> courses = new ArrayList<>();
     Student student = new Student();
     private int studentId;
