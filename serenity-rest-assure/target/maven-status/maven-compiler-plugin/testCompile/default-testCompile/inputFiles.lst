@@ -1,0 +1,8 @@
+/Users/trantrongnhan/Documents/SourceCode/api/serenity-rest-assure/src/test/java/com/studentapp/tests/deleteStudent/DeleteStudentTest.java
+/Users/trantrongnhan/Documents/SourceCode/api/serenity-rest-assure/src/test/java/com/studentapp/testbase/TestBase.java
+/Users/trantrongnhan/Documents/SourceCode/api/serenity-rest-assure/src/test/java/com/studentapp/utils/TestUtils.java
+/Users/trantrongnhan/Documents/SourceCode/api/serenity-rest-assure/src/test/java/com/studentapp/requests/StudentAppRequests.java
+/Users/trantrongnhan/Documents/SourceCode/api/serenity-rest-assure/src/test/java/com/studentapp/tests/createStudent/CreateStudentTest.java
+/Users/trantrongnhan/Documents/SourceCode/api/serenity-rest-assure/src/test/java/com/studentapp/tests/editStudent/EditStudentTest.java
+/Users/trantrongnhan/Documents/SourceCode/api/serenity-rest-assure/src/test/java/com/studentapp/tests/getStudent/GetStudentTest.java
+/Users/trantrongnhan/Documents/SourceCode/api/serenity-rest-assure/src/test/java/com/studentapp/requests/StudentAppBusiness.java
