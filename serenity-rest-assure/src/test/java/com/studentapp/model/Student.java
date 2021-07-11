@@ -57,4 +57,13 @@ public class Student {
     public void setCourses(List<String> courses) {
         this.courses = courses;
     }
+
+    @Override
+    public String toString() {
+        String student = String.format(
+                "id=%s, firstName='%s', lastName='%s', email='%s', programme='%s', " +
+                        "courses:%s", getId(), getFirstName(), getLastName(), getEmail(), getProgramme(),
+                getCourses().toString());
+        return student;
+    }
 }

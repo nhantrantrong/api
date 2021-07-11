@@ -1,7 +1,9 @@
 package com.studentapp.requests;
 
+import com.framework.serenity.core.api.RequestBuilder;
 import com.studentapp.requests.business.StudentAppBusiness;
 import com.studentapp.requests.original.StudentAppRequests;
+import net.thucydides.core.annotations.Steps;
 
 /**
  * Creator: Nhan.Tran Trong
@@ -9,14 +11,16 @@ import com.studentapp.requests.original.StudentAppRequests;
  *
  */
 public class StudentAppRequestsFactory  {
-    public static StudentAppRequests studentRequests;
+
+    public static RequestBuilder requestBuilder;
+
+    @Steps
     public static StudentAppBusiness studentAppBusiness;
 
-    public static void initRequests(String baseUri){
-        // init original single api requests
-        studentRequests = new StudentAppRequests(baseUri);
+    @Steps
+    public static StudentAppRequests studentRequests;
 
-        // init business class which contains multiple api request for a business flow
-        studentAppBusiness = new StudentAppBusiness();
+    public static void initRequests(String baseUri){
+        requestBuilder = new RequestBuilder(baseUri);
     }
 }

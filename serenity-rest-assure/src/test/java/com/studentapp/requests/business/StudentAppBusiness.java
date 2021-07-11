@@ -1,6 +1,7 @@
 package com.studentapp.requests.business;
 
 import com.framework.serenity.core.enums.StatusCode;
+import net.thucydides.core.annotations.Step;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +16,7 @@ import static com.studentapp.requests.StudentAppRequestsFactory.studentRequests;
  */
 public class StudentAppBusiness {
 
+    @Step("Get Student id by email: '{0}'")
     public int getStudentIdByEmail(String email) {
         String findStudentByEmailPath = "findAll{it.email=='%s'}";
         String findPath = String.format(findStudentByEmailPath, email);
