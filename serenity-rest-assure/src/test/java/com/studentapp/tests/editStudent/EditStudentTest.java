@@ -40,13 +40,13 @@ public class EditStudentTest extends TestBase {
         student.setProgramme(programme);
         student.setCourses(courses);
 
-        studentRequests.createStudent(student, CREATED);
-        studentId = studentAppBusiness.getStudentIdByEmail(email);
+        studentAppSteps.createStudent(student, CREATED);
+        studentId = studentAppSteps.getStudentIdByEmail(email);
     }
 
     @After
     public void afterTest() {
-        studentRequests.deleteStudent(studentId, NO_CONTENT);
+        studentAppSteps.deleteStudent(studentId, NO_CONTENT);
     }
 
     @Title("Validate that user can update an existing student")
@@ -57,9 +57,9 @@ public class EditStudentTest extends TestBase {
         student.setFirstName(updatedFirstName);
         student.setCourses(courses);
 
-        studentRequests.updateStudent(studentId, student, SUCCESS);
+        studentAppSteps.updateStudent(studentId, student, SUCCESS);
 
-        HashMap<String, Object> updatedStudent = studentRequests.getStudentById(studentId, SUCCESS)
+        HashMap<String, Object> updatedStudent = studentAppSteps.getStudentById(studentId, SUCCESS)
                 .extract()
                 .as(HashMap.class);
 
