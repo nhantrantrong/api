@@ -1,5 +1,5 @@
 ## api Repository
-- This is sample repository framework for api testing
+- This is sample repository framework for api testing with Java Serenity
 
 ## Get the Application Under Test
 - Download and install docker on your machine
