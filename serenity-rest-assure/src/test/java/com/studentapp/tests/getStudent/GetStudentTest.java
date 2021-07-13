@@ -14,7 +14,7 @@ public class GetStudentTest extends TestBase {
     @Title("Validate that user can get list of existing students")
     @Test
     public void validateGetExistingStudents() {
-        studentRequests.getStudentsList(SUCCESS);
+        studentAppSteps.getStudentsList(SUCCESS);
     }
 }
 

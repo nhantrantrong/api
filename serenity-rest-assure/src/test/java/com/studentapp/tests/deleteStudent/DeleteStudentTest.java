@@ -35,15 +35,15 @@ public class DeleteStudentTest extends TestBase {
         student.setProgramme(programme);
         student.setCourses(courses);
 
-        studentRequests.createStudent(student, CREATED);
+        studentAppSteps.createStudent(student, CREATED);
     }
 
     @Title("Validate that user can delete an existing student")
     @Test
     public void validateDeleteExistingStudentSuccessfully() {
-        int studentId = studentAppBusiness.getStudentIdByEmail(email);
-        studentRequests.deleteStudent(studentId, NO_CONTENT);
-        studentRequests.getStudentById(studentId, NOT_FOUND);
+        int studentId = studentAppSteps.getStudentIdByEmail(email);
+        studentAppSteps.deleteStudent(studentId, NO_CONTENT);
+        studentAppSteps.getStudentById(studentId, NOT_FOUND);
     }
 }
 

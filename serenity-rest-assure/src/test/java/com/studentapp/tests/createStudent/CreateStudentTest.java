@@ -24,8 +24,8 @@ public class CreateStudentTest extends TestBase {
 
     @After
     public void afterTest() {
-        int studentId = studentAppBusiness.getStudentIdByEmail(email);
-        studentRequests.deleteStudent(studentId, NO_CONTENT);
+        int studentId = studentAppSteps.getStudentIdByEmail(email);
+        studentAppSteps.deleteStudent(studentId, NO_CONTENT);
     }
 
     @Title("Validate new student can be created successfully")
@@ -41,6 +41,6 @@ public class CreateStudentTest extends TestBase {
         student.setProgramme(programme);
         student.setCourses(courses);
 
-        studentRequests.createStudent(student, CREATED);
+        studentAppSteps.createStudent(student, CREATED);
     }
 }
