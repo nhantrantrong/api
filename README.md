@@ -14,7 +14,7 @@ https://www.docker.com/products/docker-desktop
 - Then You can access the student app on the url http://localhost:8081/student/list
 
 ## Noted:
-- Test files Name should be Endswith Test to be able to recognize and execute by Junit
+- Test files Name should be Ended with `Test` or `Tests` to be able to recognize and execute by Junit
 
 ## Test execution locally 
 - Run a single test:
@@ -25,3 +25,6 @@ https://www.docker.com/products/docker-desktop
 
 - Only generate serenity report
 `mvn serenity:aggregate`
+
+## Java Doc reference by below html file
+./javaDoc/index.html
