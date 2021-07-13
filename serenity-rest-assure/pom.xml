@@ -19,8 +19,22 @@
         <serenity.cucumber.version>2.4.34</serenity.cucumber.version>
         <serenity.maven.version>2.4.24</serenity.maven.version>
         <cucumber.version>6.10.4</cucumber.version>
-        <tags></tags>
         <encoding>UTF-8</encoding>
+        <tags></tags>
+        <!-- Configuration for parallel test execution      -->
+        <!-- Selection of type to run parallel, class / method / suite -->
+        <!-- Should not execute test by methods due to all of methods will be executed parallel that can
+        lead to data struggle when the test method is independent (before and after methods may be also
+        affected)-->
+        <execution.parallel>classes</execution.parallel>
+        <!-- Number of thread to execute test parallel  -->
+        <execution.parallel.threadCount>4</execution.parallel.threadCount>
+        <!-- Number of JVM process to execute thread. As configuration with threadCount = 4
+        and forkCount = 2, that means there will 2 JVM process to execute 4 thread in parallel, each fork
+        will start 2 thread parallel -->
+        <execution.parallel.forkCount>2</execution.parallel.forkCount>
+        <!-- Kill and Start a new JVM process after completing or not -->
+        <execution.parallel.reuseForks>true</execution.parallel.reuseForks>
 
     </properties>
 
@@ -138,8 +152,12 @@
                         <include>**/*TestSuite.java</include>
                         <include>**/When*.java</include>
                     </includes>
-                    <parallel>classes</parallel>
-                    <parallel>methods</parallel>
+
+                    <parallel>${execution.parallel}</parallel>
+                    <!-- <parallel>methods</parallel>-->
+                    <threadCount>${execution.parallel.threadCount}</threadCount>
+                    <forkCount>${execution.parallel.forkCount}</forkCount>
+                    <reuseForks>${execution.parallel.reuseForks}</reuseForks>
                     <useUnlimitedThreads>true</useUnlimitedThreads>
                 </configuration>
                 <executions>
