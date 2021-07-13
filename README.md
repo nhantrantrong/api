@@ -9,9 +9,9 @@ https://www.docker.com/products/docker-desktop
 `docker pull tejasn1/student-app`
 
 - You can launch the student-app using the command below
-`docker run -p 8085:8080 -d tejasn1/student-app`
+`docker run -p 8081:8080 -d tejasn1/student-app`
 
-- Then You can access the student app on the url http://localhost:8085/student/list
+- Then You can access the student app on the url http://localhost:8081/student/list
 
 ## Noted:
 - Test files Name should be Endswith Test to be able to recognize and execute by Junit
