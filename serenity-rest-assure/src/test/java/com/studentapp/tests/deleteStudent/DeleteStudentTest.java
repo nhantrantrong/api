@@ -12,7 +12,6 @@ import org.junit.runner.RunWith;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.framework.serenity.core.enums.StatusCode.*;
 
 @RunWith(SerenityRunner.class)
 public class DeleteStudentTest extends TestBase {
@@ -35,15 +34,18 @@ public class DeleteStudentTest extends TestBase {
         student.setProgramme(programme);
         student.setCourses(courses);
 
-        studentAppSteps.createStudent(student, CREATED);
+        studentAppSteps.createStudentSuccess(student);
     }
 
     @Title("Validate that user can delete an existing student")
     @Test
     public void validateDeleteExistingStudentSuccessfully() {
         int studentId = studentAppSteps.getStudentIdByEmail(email);
-        studentAppSteps.deleteStudent(studentId, NO_CONTENT);
-        studentAppSteps.getStudentById(studentId, NOT_FOUND);
+        studentAppSteps.deleteStudentSuccess(studentId);
+
+        studentId = studentAppSteps.getStudentIdByEmail(email);
+        validations.validateEqual(studentId, -1,
+                "Validate deleted student should be removed from list");
     }
 }
 

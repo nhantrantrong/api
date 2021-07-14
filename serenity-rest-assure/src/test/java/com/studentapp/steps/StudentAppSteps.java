@@ -2,14 +2,10 @@ package com.studentapp.steps;
 
 import com.framework.serenity.core.enums.StatusCode;
 import com.studentapp.model.Student;
-import com.studentapp.requests.StudentAppRequests;
+import com.studentapp.response.CreatedUpdatedSuccess;
+import com.studentapp.response.ErrorResponse;
 import io.restassured.response.ValidatableResponse;
-import net.thucydides.core.annotations.Step;
-
-import java.util.HashMap;
-import java.util.List;
-
-import static com.studentapp.tests.TestBase.requestsFactory;
+import static com.framework.serenity.core.enums.StatusCode.*;
 
 
 /**
@@ -17,47 +13,58 @@ import static com.studentapp.tests.TestBase.requestsFactory;
  * This class defines common functions which call api requests to conduct a business flow or need to
  * extract or handle some api request response and will be generated with Step Description in Report
  */
-public class StudentAppSteps {
-    // Init necessary Requests to be called
-    private StudentAppRequests studentRequests = requestsFactory.getStudentAppRequests();
+public class StudentAppSteps extends BaseSteps {
 
-    @Step("Get list of Students")
-    public ValidatableResponse getStudentsList(StatusCode expectedCode) {
-        return studentRequests.getStudentsList(expectedCode);
+    public Student[] getStudentsListSuccess() {
+        logSteps("Get list of Students");
+        return studentRequests.getStudentsList()
+                .spec(studentResponseSpec.getStudentsListSuccessSpec())
+                .extract().as(Student[].class);
     }
 
-    @Step("Create new student: firstName='{0}'")
-    public ValidatableResponse createStudent(Student student, StatusCode expectedCode) {
-        return studentRequests.createStudent(student, expectedCode);
+    public CreatedUpdatedSuccess createStudentSuccess(Student student) {
+        logSteps(String.format("Create new student: '%s'", student.toString()));
+        return studentRequests.createStudent(student)
+                .spec(studentResponseSpec.createStudentSuccessSpec())
+                .extract().as(CreatedUpdatedSuccess.class);
     }
 
-    @Step("Delete student with id: {0}")
-    public ValidatableResponse deleteStudent(int studentId, StatusCode expectedCode) {
-        return studentRequests.deleteStudent(studentId, expectedCode);
+    public ValidatableResponse deleteStudentSuccess(int studentId) {
+        logSteps(String.format("Delete student with id: %s", String.valueOf(studentId)));
+        return studentRequests.deleteStudent(studentId)
+                .spec(studentResponseSpec.deleteStudentSuccessSpec());
     }
 
-    @Step("Get student with id: {0}")
-    public ValidatableResponse getStudentById(int studentId, StatusCode expectedCode) {
-        return studentRequests.getStudentById(studentId, expectedCode);
+    public Student getExistingStudentById(int studentId) {
+        logSteps(String.format("Get existing student with id: %s", String.valueOf(studentId)));
+        return studentRequests.getStudentById(studentId)
+                .spec(studentResponseSpec.getExistingStudentSuccessSpec())
+                .extract().as(Student.class);
     }
 
-    @Step("Update student with id: {0} to {1}")
-    public ValidatableResponse updateStudent(int studentId, Student student, StatusCode expectedCode) {
-        return studentRequests.updateStudent(studentId, student, expectedCode);
+    public ErrorResponse getNotExistingStudentById(int studentId) {
+        logSteps(String.format("Get existing student with id: %s", String.valueOf(studentId)));
+        return studentRequests.getStudentById(studentId)
+                .spec(studentResponseSpec.getNotExistingStudentSpec())
+                .extract().as(ErrorResponse.class);
     }
 
-    @Step("Get Student id by email: '{0}'")
+    public CreatedUpdatedSuccess updateStudentSuccess(int studentId, Student student) {
+        logSteps(String.format("Update student with id: %s to %s",
+                        String.valueOf(studentId), student.toString()));
+        return studentRequests.updateStudent(studentId, student)
+                .spec(studentResponseSpec.updateStudentSuccessSpec())
+                .extract().as(CreatedUpdatedSuccess.class);
+    }
+
     public int getStudentIdByEmail(String email) {
-        String findStudentByEmailPath = "findAll{it.email=='%s'}";
-        String findPath = String.format(findStudentByEmailPath, email);
-        List<HashMap<String, Object>> students = getStudentsList(StatusCode.SUCCESS)
-                .extract()
-                .path(findPath);
-
-        if (students.size() > 0) {
-            return (int) students.get(0).get("id");
-        } else {
-            return -1;
+        logSteps(String.format("Get Student id by email: '%s'", email));
+        Student[] students = getStudentsListSuccess();
+        for (Student std : students) {
+            if (std.getEmail().equals(email)) {
+                return std.getId();
+            }
         }
+        return -1;
     }
 }

@@ -40,13 +40,13 @@ public class EditStudentTest extends TestBase {
         student.setProgramme(programme);
         student.setCourses(courses);
 
-        studentAppSteps.createStudent(student, CREATED);
+        studentAppSteps.createStudentSuccess(student);
         studentId = studentAppSteps.getStudentIdByEmail(email);
     }
 
     @After
     public void afterTest() {
-        studentAppSteps.deleteStudent(studentId, NO_CONTENT);
+        studentAppSteps.deleteStudentSuccess(studentId);
     }
 
     @Title("Validate that user can update an existing student")
@@ -57,19 +57,13 @@ public class EditStudentTest extends TestBase {
         student.setFirstName(updatedFirstName);
         student.setCourses(courses);
 
-        studentAppSteps.updateStudent(studentId, student, SUCCESS);
+        studentAppSteps.updateStudentSuccess(studentId, student);
 
-        HashMap<String, Object> updatedStudent = studentAppSteps.getStudentById(studentId, SUCCESS)
-                .extract()
-                .as(HashMap.class);
+        Student updatedStudent = studentAppSteps.getExistingStudentById(studentId);
 
-        String updatedStudentId = String.format("%.0f", Double.parseDouble(updatedStudent.get("id").toString()));
-        assertThat(updatedStudentId, is(String.valueOf(studentId)));
-        assertThat(updatedStudent, hasValue(student.getFirstName()));
-        assertThat(updatedStudent, hasValue(student.getLastName()));
-        assertThat(updatedStudent, hasValue(student.getEmail()));
-        assertThat(updatedStudent, hasValue(student.getProgramme()));
-        assertThat(updatedStudent, hasValue(student.getCourses()));
+        student.setId(studentId);
+        validations.validateEqual(updatedStudent.toString(), student.toString(),
+                "Validate information of the updated student should be correct");
     }
 }
 

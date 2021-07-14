@@ -18,28 +18,23 @@ public class StudentAppRequests extends RequestBuilder {
         super(baseUri);
     }
 
-    public ValidatableResponse getStudentsList(StatusCode expectedCode) {
-        return sendGet(GET_STUDENTS_LIST)
-                .statusCode(expectedCode.getStatusCode());
+    public ValidatableResponse getStudentsList() {
+        return sendGet(GET_STUDENTS_LIST);
     }
 
-    public ValidatableResponse createStudent(Student student, StatusCode expectedCode) {
-        return sendPost(POST_STUDENT, student)
-                .statusCode(expectedCode.getStatusCode());
+    public ValidatableResponse createStudent(Student student) {
+        return sendPost(POST_STUDENT, student);
     }
 
-    public ValidatableResponse deleteStudent(int studentId, StatusCode expectedCode) {
-        return sendDelete(DELETE_STUDENT, String.valueOf(studentId))
-                .statusCode(expectedCode.getStatusCode());
+    public ValidatableResponse deleteStudent(int studentId) {
+        return sendDelete(DELETE_STUDENT, String.valueOf(studentId));
     }
 
-    public ValidatableResponse getStudentById(int studentId, StatusCode expectedCode) {
-        return sendGet(GET_STUDENT, String.valueOf(studentId))
-                .statusCode(expectedCode.getStatusCode());
+    public ValidatableResponse getStudentById(int studentId) {
+        return sendGet(GET_STUDENT, String.valueOf(studentId));
     }
 
-    public ValidatableResponse updateStudent(int studentId, Student student, StatusCode expectedCode) {
-        return sendPut(PUT_STUDENT, student, String.valueOf(studentId))
-                .statusCode(expectedCode.getStatusCode());
+    public ValidatableResponse updateStudent(int studentId, Student student) {
+        return sendPut(PUT_STUDENT, student, String.valueOf(studentId));
     }
 }

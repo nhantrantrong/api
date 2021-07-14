@@ -61,8 +61,8 @@ public class Student {
     @Override
     public String toString() {
         String student = String.format(
-                "id=%s, firstName='%s', lastName='%s', email='%s', programme='%s', " +
-                        "courses:%s", getId(), getFirstName(), getLastName(), getEmail(), getProgramme(),
+                "{id=%s, firstName='%s', lastName='%s', email='%s', programme='%s', courses:%s}",
+                getId(), getFirstName(), getLastName(), getEmail(), getProgramme(),
                 getCourses().toString());
         return student;
     }

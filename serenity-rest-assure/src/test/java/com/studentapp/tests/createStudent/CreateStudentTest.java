@@ -12,8 +12,6 @@ import org.junit.runner.RunWith;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.framework.serenity.core.enums.StatusCode.*;
-
 @RunWith(SerenityRunner.class)
 public class CreateStudentTest extends TestBase {
     private final String firstName = "Karson";
@@ -25,7 +23,7 @@ public class CreateStudentTest extends TestBase {
     @After
     public void afterTest() {
         int studentId = studentAppSteps.getStudentIdByEmail(email);
-        studentAppSteps.deleteStudent(studentId, NO_CONTENT);
+        studentAppSteps.deleteStudentSuccess(studentId);
     }
 
     @Title("Validate new student can be created successfully")
@@ -41,6 +39,12 @@ public class CreateStudentTest extends TestBase {
         student.setProgramme(programme);
         student.setCourses(courses);
 
-        studentAppSteps.createStudent(student, CREATED);
+        studentAppSteps.createStudentSuccess(student);
+        int studentId = studentAppSteps.getStudentIdByEmail(email);
+        Student createdStudent = studentAppSteps.getExistingStudentById(studentId);
+        student.setId(studentId);
+        validations.validateEqual(createdStudent.toString(), student.toString(),
+                "Validate the student should be created successfully");
+
     }
 }
