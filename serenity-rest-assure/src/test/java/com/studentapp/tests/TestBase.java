@@ -12,10 +12,10 @@ import java.io.IOException;
 import java.util.Properties;
 
 
-
 /**
- * Creator: Nhan.Tran Trong
- * Implement some initialization, beforeClass and afterClass for preparation and cleaning up test
+ * @author trantrongnhan
+ * <p>
+ * Class implementation for beforeClass and afterClass to prepare and clean up test
  */
 public class TestBase {
     private static final String testsPropertiesFile = "./src/test/resources/configs/tests.properties";

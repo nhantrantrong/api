@@ -1,5 +1,10 @@
 package com.studentapp.constants;
 
+/**
+ * @author trantrongnhan
+ * <p>
+ * Definition of File Path Locations for project
+ */
 public class FileLocations {
     public static final String TESTS_PROPERTIES = "./src/test/resources/configs/tests.properties";
 

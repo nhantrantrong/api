@@ -8,6 +8,9 @@ import static com.studentapp.tests.TestBase.requestsFactory;
 
 /**
  * @author trantrongnhan
+ * <p>
+ * Class implementation for initializing all api requests and Response Specificaiton Classes which are invoked in
+ * Steps class
  */
 public class BaseSteps {
 

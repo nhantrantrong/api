@@ -10,9 +10,10 @@ import java.util.List;
 
 
 /**
- * Creator: Nhan.Tran Trong
- * This class defines common functions which call api requests to conduct a business flow or need to
- * extract or handle some api request response and will be generated with Step Description in Report
+ * @author trantrongnhan
+ * <p>
+ * Class implemenation for common functions which call api requests to conduct a business flow and including Response
+ * validation and will be generated with Step Description in Report with @Step annotation
  */
 public class StudentAppSteps extends BaseSteps {
 
