@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 
 /**
  * @author trantrongnhan
- * @implNote This class could be considered as deprecated when applying DTO for enhancement
+ * Noted: This class could be considered to be deprecated when applying DTO for enhancement
  * <p>
  * Class implementation for Deserializing JSON response to Object for validation in Spec or reusing returned data
  */

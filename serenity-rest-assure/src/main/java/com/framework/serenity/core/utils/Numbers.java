@@ -10,6 +10,8 @@ import java.util.Random;
 public class Numbers {
     /**
      * Get random of int String
+     *
+     * @return String
      */
     public static String getRandomInt() {
         Random random = new Random();

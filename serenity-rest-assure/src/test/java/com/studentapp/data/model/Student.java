@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * @author trantrongnhan
- * @implNote This class could be considered to be deprecated when apply DTO for enhancement
+ * Noted: This class could be considered to be deprecated when applying DTO for enhancement
  * <p>
  * Class implementation for model entities, which can be treated as a Test Data or convert to JSON Body / Response while
  * executing test
@@ -110,7 +110,7 @@ public class Student {
     /**
      * Get courses of Student
      *
-     * @return courses List<String>
+     * @return courses List of String
      */
     public List<String> getCourses() {
         return courses;
@@ -119,7 +119,7 @@ public class Student {
     /**
      * Set courses for Student
      *
-     * @param courses List<String>
+     * @param courses List of String
      */
     public void setCourses(List<String> courses) {
         this.courses = courses;

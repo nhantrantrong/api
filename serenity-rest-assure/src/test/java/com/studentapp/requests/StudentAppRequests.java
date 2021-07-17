@@ -43,7 +43,7 @@ public class StudentAppRequests extends RequestBuilder {
     }
 
     /**
-     * Send DELETE "/<StudentId>" api request
+     * Send DELETE "/{StudentId}" api request
      *
      * @param studentId int Id of student to delete
      * @return ValidatableResponse
@@ -53,7 +53,7 @@ public class StudentAppRequests extends RequestBuilder {
     }
 
     /**
-     * Send GET "/<StudentId>" api request
+     * Send GET "/{StudentId}" api request
      *
      * @param studentId int Id of student to retrieve
      * @return ValidatableResponse
@@ -64,7 +64,7 @@ public class StudentAppRequests extends RequestBuilder {
 
 
     /**
-     * Send PUT "/<ClientId>" api request
+     * Send PUT "/{StudentId}" api request
      *
      * @param studentId id of student to update
      * @param student   student with new data which will be converted to JSON request body
