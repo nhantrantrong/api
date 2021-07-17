@@ -4,9 +4,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 /**
- * Implementation of Validate common functions
- *
  * @author trantrongnhan
+ * <p>
+ * Implementation of Validate common functions
  */
 public class Validations {
     /**
@@ -31,6 +31,12 @@ public class Validations {
         assertThat(messageIfFailed, actual, equalTo(expected));
     }
 
+    /**
+     * Validate if an Object is NULL or not
+     *
+     * @param actual          the actual object to validate
+     * @param messageIfFailed the message if the validation is failed
+     */
     public void validateNull(Object actual, String messageIfFailed) {
         assertThat(messageIfFailed, actual, nullValue());
     }

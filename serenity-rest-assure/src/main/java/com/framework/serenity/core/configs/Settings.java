@@ -5,7 +5,20 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * @author trantrongnhan
+ * <p>
+ * Class implementation for common functions relating to loading or getting configurations information
+ */
 public class Settings {
+
+    /**
+     * Read data from properties file
+     *
+     * @param fileName String
+     * @return Properties
+     * @throws IOException IOException catch handling
+     */
     public static Properties readPropertiesFile(String fileName) throws IOException {
         FileInputStream fis = null;
         Properties prop = null;
@@ -13,8 +26,8 @@ public class Settings {
             fis = new FileInputStream(fileName);
             prop = new Properties();
             prop.load(fis);
-        } catch (FileNotFoundException fnfe) {
-            fnfe.printStackTrace();
+        } catch (FileNotFoundException fileNotFoundError) {
+            fileNotFoundError.printStackTrace();
         } catch (IOException ioe) {
             ioe.printStackTrace();
         } finally {
