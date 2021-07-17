@@ -2,17 +2,28 @@ package com.studentapp.requests;
 
 
 /**
- * Creator: Nhan.Tran Trong
- * This class is used to initialize all api and business requests classes
+ * @author trantrongnhan
+ * <p>
+ * Class implementation for initializing all api request classes
  */
 public class StudentAppRequestsFactory {
 
-    public StudentAppRequests studentAppRequests;
+    protected StudentAppRequests studentAppRequests;
 
+    /**
+     * Init all api request classes of Application Under Test
+     *
+     * @param baseUri String
+     */
     public void initRequests(String baseUri) {
         studentAppRequests = new StudentAppRequests(baseUri);
     }
 
+    /**
+     * Get StudentAppRequests to invoke send request methods
+     *
+     * @return studentAppRequests StudentAppRequests
+     */
     public StudentAppRequests getStudentAppRequests() {
         return studentAppRequests;
     }
