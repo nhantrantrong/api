@@ -1,11 +1,12 @@
 package com.studentapp.steps;
 
-import com.framework.serenity.core.enums.StatusCode;
-import com.studentapp.model.Student;
+import com.studentapp.data.model.Student;
 import com.studentapp.response.CreatedUpdatedSuccess;
 import com.studentapp.response.ErrorResponse;
 import io.restassured.response.ValidatableResponse;
-import static com.framework.serenity.core.enums.StatusCode.*;
+import net.thucydides.core.annotations.Step;
+
+import java.util.List;
 
 
 /**
@@ -15,56 +16,72 @@ import static com.framework.serenity.core.enums.StatusCode.*;
  */
 public class StudentAppSteps extends BaseSteps {
 
-    public Student[] getStudentsListSuccess() {
-        logSteps("Get list of Students");
+    @Step("Get list of Students")
+    public List<Student> getStudentsListSuccess() {
         return studentRequests.getStudentsList()
                 .spec(studentResponseSpec.getStudentsListSuccessSpec())
-                .extract().as(Student[].class);
+                .extract().body().jsonPath().getList(".", Student.class);
     }
 
+    @Step("Create new student: {0}")
     public CreatedUpdatedSuccess createStudentSuccess(Student student) {
-        logSteps(String.format("Create new student: '%s'", student.toString()));
         return studentRequests.createStudent(student)
                 .spec(studentResponseSpec.createStudentSuccessSpec())
                 .extract().as(CreatedUpdatedSuccess.class);
     }
 
+    @Step("Delete student with id: {0}")
     public ValidatableResponse deleteStudentSuccess(int studentId) {
-        logSteps(String.format("Delete student with id: %s", String.valueOf(studentId)));
         return studentRequests.deleteStudent(studentId)
                 .spec(studentResponseSpec.deleteStudentSuccessSpec());
     }
 
+    @Step("Get existing student with id: {0}")
     public Student getExistingStudentById(int studentId) {
-        logSteps(String.format("Get existing student with id: %s", String.valueOf(studentId)));
         return studentRequests.getStudentById(studentId)
                 .spec(studentResponseSpec.getExistingStudentSuccessSpec())
                 .extract().as(Student.class);
     }
 
+    @Step("Get non-existing student with id: {0}")
     public ErrorResponse getNotExistingStudentById(int studentId) {
-        logSteps(String.format("Get existing student with id: %s", String.valueOf(studentId)));
         return studentRequests.getStudentById(studentId)
                 .spec(studentResponseSpec.getNotExistingStudentSpec())
                 .extract().as(ErrorResponse.class);
     }
 
+    @Step("Update student with id: {0} to {1}")
     public CreatedUpdatedSuccess updateStudentSuccess(int studentId, Student student) {
-        logSteps(String.format("Update student with id: %s to %s",
-                        String.valueOf(studentId), student.toString()));
         return studentRequests.updateStudent(studentId, student)
                 .spec(studentResponseSpec.updateStudentSuccessSpec())
                 .extract().as(CreatedUpdatedSuccess.class);
     }
 
+    @Step("Get Student id by email: '{0}'")
     public int getStudentIdByEmail(String email) {
-        logSteps(String.format("Get Student id by email: '%s'", email));
-        Student[] students = getStudentsListSuccess();
+        List<Student> students = getStudentsListSuccess();
         for (Student std : students) {
             if (std.getEmail().equals(email)) {
                 return std.getId();
             }
         }
         return -1;
+    }
+
+    @Step("Delete student by email: '{0}'")
+    public void deleteStudentByEmail(String email) {
+        int studentId = getStudentIdByEmail(email);
+        deleteStudentSuccess(studentId);
+    }
+
+    @Step("Get existing student by email: '{0}'")
+    public Student getStudentByEmail(String email) {
+        List<Student> students = getStudentsListSuccess();
+        for (Student std : students) {
+            if (std.getEmail().equals(email)) {
+                return std;
+            }
+        }
+        return null;
     }
 }

@@ -1,4 +1,4 @@
-package com.studentapp.model;
+package com.studentapp.data.model;
 
 import java.util.List;
 

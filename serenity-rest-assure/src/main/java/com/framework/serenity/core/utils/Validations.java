@@ -1,8 +1,7 @@
 package com.framework.serenity.core.utils;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.*;
 
 /**
  * Implementation of Validate common functions
@@ -30,5 +29,9 @@ public class Validations {
      */
     public void validateEqual(Object actual, Object expected, String messageIfFailed) {
         assertThat(messageIfFailed, actual, equalTo(expected));
+    }
+
+    public void validateNull(Object actual, String messageIfFailed) {
+        assertThat(messageIfFailed, actual, nullValue());
     }
 }

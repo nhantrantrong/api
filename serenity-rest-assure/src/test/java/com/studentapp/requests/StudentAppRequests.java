@@ -1,8 +1,7 @@
 package com.studentapp.requests;
 
 import com.framework.serenity.core.api.RequestBuilder;
-import com.framework.serenity.core.enums.StatusCode;
-import com.studentapp.model.Student;
+import com.studentapp.data.model.Student;
 import io.restassured.response.ValidatableResponse;
 
 import static com.studentapp.constants.enums.StudentAppRequestURIs.*;
