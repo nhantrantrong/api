@@ -31,8 +31,8 @@ https://www.docker.com/products/docker-desktop
 
 ## Generate Json Schema to validate
 - Navigate to any of below online tool:
-https://www.liquid-technologies.com/online-json-to-schema-converter
-https://www.jsonschema.net/login
+<br> https://www.liquid-technologies.com/online-json-to-schema-converter
+<br> https://www.jsonschema.net/login
 - Copy and paste your JSon string to the text file
 - Select any corresponding options
 - Click "Generate" button
