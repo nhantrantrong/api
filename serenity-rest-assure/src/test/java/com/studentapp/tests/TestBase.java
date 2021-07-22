@@ -11,6 +11,8 @@ import org.junit.BeforeClass;
 import java.io.IOException;
 import java.util.Properties;
 
+import static com.studentapp.constants.FileLocations.TESTS_PROPERTIES;
+
 
 /**
  * @author trantrongnhan
@@ -18,7 +20,6 @@ import java.util.Properties;
  * Class implementation for beforeClass and afterClass to prepare and clean up test
  */
 public class TestBase {
-    private static final String testsPropertiesFile = "./src/test/resources/configs/tests.properties";
     private static Properties prop;
     public static StudentAppRequestsFactory requestsFactory = new StudentAppRequestsFactory();
     public static Validations validations = new Validations();
@@ -29,7 +30,8 @@ public class TestBase {
 
     @BeforeClass
     public static void init() throws IOException {
-        prop = Settings.readPropertiesFile(testsPropertiesFile);
-        requestsFactory.initRequests(prop.getProperty("baseUrl"));
+        prop = Settings.readPropertiesFile(TESTS_PROPERTIES);
+        String baseUrl = prop.getProperty("baseUrl");
+        requestsFactory.initRequests(baseUrl);
     }
 }
