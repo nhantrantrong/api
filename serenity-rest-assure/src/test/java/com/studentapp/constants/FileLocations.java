@@ -6,7 +6,7 @@ package com.studentapp.constants;
  * Definition of File Path Locations for project
  */
 public class FileLocations {
-    public static final String TESTS_PROPERTIES = "./src/test/resources/configs/tests.properties";
+    public static final String TESTS_PROPERTIES = "./target/classes/configs/tests.properties";
 
     // -- JSON Schemas
     public static final String JSON_SCHEMAS = "./src/test/resources/schemas";
